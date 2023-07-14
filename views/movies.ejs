@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sea Cinema - Movies</title>
+    <style>
+      body {
+        background-color: #222;
+        color: #fff;
+        font-family: Arial, sans-serif;
+      }
+
+      .navbar {
+        background-color: #333;
+        padding: 10px;
+      }
+
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin-right: 10px;
+      }
+
+      .navbar a:hover {
+        color: #ff0;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .movies-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .movie {
+        width: 220px;
+        margin-bottom: 30px;
+        padding: 20px;
+        background-color: #444;
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .movie h2 {
+        margin-top: 0;
+        font-size: 24px;
+      }
+
+      .movie p {
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      .movie img {
+        display: block;
+        width: 160px;
+        height: 240px;
+        object-fit: cover;
+        margin: 0 auto;
+        border-radius: 5px;
+      }
+
+      .movie button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #ff0;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .movie button:hover {
+        background-color: #ff9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="/balance">Balance</a>
+      <a href="/movies">Movies</a>
+    </div>
+    <h1>Daftar Film</h1>
+    <div class="movies-container">
+      <% movies.forEach((movie) => { %>
+      <div class="movie">
+        <h2><%= movie.title %></h2>
+        <img src="<%= movie.poster_url %>" alt="<%= movie.title %> Poster" />
+        <p><%= movie.description %></p>
+        <p>Age Rating: <%= movie.ageRating %></p>
+        <p>Ticket Price: <%= movie.ticketPrice %></p>
+        <div class="button-container">
+          <a href="/movies/<%= movie._id %>/book"><button>Book Now</button></a>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </body>
+</html>

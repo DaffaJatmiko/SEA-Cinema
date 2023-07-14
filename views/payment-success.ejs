@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembayaran Berhasil</title>
+    <style>
+      body {
+        background-color: #222;
+        color: #fff;
+        font-family: Arial, sans-serif;
+      }
+
+      .navbar {
+        background-color: #333;
+        padding: 10px;
+      }
+
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin-right: 10px;
+      }
+
+      .navbar a:hover {
+        color: #ff0;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      p {
+        margin-top: 10px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="/balance">Balance</a>
+      <a href="/movies">Movies</a>
+    </div>
+    <h1>Pembayaran Berhasil</h1>
+    <h2>Informasi Tiket</h2>
+    <p>Nama Film: <%= movie.title %></p>
+    <p>Nomor Kursi: <%= seatNumbers.join(', ') %></p>
+    <p>Total Biaya: <%= totalCost %> Rupiah</p>
+    <h2>Sisa Saldo</h2>
+    <p>Sisa Saldo Anda: <%= balance.balance %> Rupiah</p>
+    <p>Terima kasih atas pembayaran Anda!</p>
+  </body>
+</html>

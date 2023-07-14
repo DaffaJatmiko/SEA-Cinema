@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pembayaran</title>
+    <style>
+      body {
+        background-color: #222;
+        color: #fff;
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      h2 {
+        margin-top: 20px;
+      }
+
+      p {
+        margin-top: 10px;
+        font-size: 18px;
+      }
+
+      form {
+        text-align: center;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #ff0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Halaman Pembayaran</h1>
+    <h2>Informasi Tiket</h2>
+    <p>Nama Film: <%= movie.title %></p>
+    <p>Nomor Kursi: <%= seatNumbers.join(', ') %></p>
+    <p>Total Biaya: <%= totalCost %> Rupiah</p>
+    <p>Saldo Anda: <%= balance.balance %> Rupiah</p>
+    <form action="/payment" method="POST">
+      <input type="hidden" name="ticketId" value="<%= ticket._id %>" />
+      <input
+        type="hidden"
+        name="seatNumbers"
+        value="<%= JSON.stringify(seatNumbers) %>"
+      />
+      <button type="submit">Bayar</button>
+    </form>
+  </body>
+</html>
